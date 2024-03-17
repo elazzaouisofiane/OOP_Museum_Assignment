@@ -1,8 +1,10 @@
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class Member extends Person {
+public class Member {
 
+    // Member Visitor composition relation by calling the Visitor object:
+    private Visitor visitor;
     // Variables declaration using encapsulation
     private int membershipID;
     // adding a static counter
@@ -13,15 +15,27 @@ public class Member extends Person {
 
     // Concrete method to construct object "Member"
     public Member(String title, String firstName, String lastName, int age, LocalDateTime visitDateTime,
-            MembershipType membershipType, String durationMonth, LocalDate membershipStartingDate) {
-        super(title, firstName, lastName, age, visitDateTime);
+            String durationMonth, LocalDate membershipStartingDate, MembershipType membershipType) {
+        this.visitor = new Visitor(title, firstName, lastName, age, visitDateTime);
         this.membershipID = nextID++;
         this.durationMonth = durationMonth;
         this.membershipStartingDate = membershipStartingDate;
         this.membershipType = membershipType;
     }
 
+    public Member(String title, String firstName, String lastName, int age, LocalDateTime visitDateTime) {
+        this.visitor = new Visitor(title, firstName, lastName, age, visitDateTime);
+        this.membershipID = nextID++;
+        this.durationMonth = null;
+        this.membershipStartingDate = null;
+        this.membershipType = null;
+    }
+
     // Getters to access the private attribute from external classes:
+    public Visitor geVisitor() {
+        return visitor;
+    }
+
     public int getMembershipID() {
         return membershipID;
     }
@@ -38,33 +52,18 @@ public class Member extends Person {
         return membershipType;
     }
 
-    // Method to set MembershipType from enum class
-    public void setMemberShipType(MembershipType membershipType) {
-        this.membershipType = membershipType;
-    }
+    // // Method to set MembershipType from enum class
+    // public void setMemberShipType(MembershipType membershipType)
+    // {this.membershipType = membershipType;}
 
     // toString method implementation to print member from memberlist
 
     @Override
     public String toString() {
-        return "Title: " + getTitle() + ", First Name: " + getFirstName() + ", Last Name: " + getLastName() +
-                ", Age: " + getAge() + ", Visit Date and Time: " + ", Membership Type: " + ", Member ID: "
+        return "Visitor: " + visitor + ", Membership Type: " + getMembershipType() + ", Member ID: "
                 + getMembershipID() +
                 ", Period: " + getDurationMonth() +
                 ", Start Date: " + getMembershipStartingDate();
     }
-
-    // // concrete FeeCalculation method using enum Membership Type as parameter
-    // public void individualFeeCalculation() {
-    // System.out.println("individual membership calc");
-    // }
-
-    // public void coupleFeeCalculation() {
-    // System.out.println("couple membership calc");
-    // }
-
-    // public void familyFeeCalculation() {
-    // System.out.println("family membership calc");
-    // }
 
 }
