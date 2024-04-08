@@ -9,36 +9,12 @@ public abstract class Member {
     private int memberID;
     private static int nextID = 123;
     private String type;
-    private String duration;
-    private LocalDate stardate;
-    // private double membershipFee;
+    private int duration;
+    private LocalDate startdate;
     public double fee;
 
-    // public Member(String firstName, String lastName, int age) {
-    // this.title = null;
-    // this.firstName = firstName;
-    // this.lastName = lastName;
-    // this.age = age;
-    // this.memberID = nextID++;
-    // this.type = null;
-    // this.duration = null;
-    // this.stardate = null;
-    // }
-
-    // public Member(String title, String firstName, String lastName, int age, int
-    // memberID) {
-    // this.title = title;
-    // this.firstName = firstName;
-    // this.lastName = lastName;
-    // this.age = age;
-    // this.memberID = nextID++;
-    // this.type = null;
-    // this.duration = null;
-    // this.stardate = null;
-    // }
-
-    public Member(String title, String firstName, String lastName, int age, int memberID, String type, String duration,
-            LocalDate stardate) {
+    public Member(String title, String firstName, String lastName, int age, int memberID, String type, int duration,
+            LocalDate startdate) {
         this.title = title;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -46,7 +22,7 @@ public abstract class Member {
         this.memberID = nextID++;
         this.type = type;
         this.duration = duration;
-        this.stardate = stardate;
+        this.startdate = startdate;
     }
 
     // adding getters
@@ -78,12 +54,12 @@ public abstract class Member {
         return type;
     }
 
-    public String getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public LocalDate getStardate() {
-        return stardate;
+    public LocalDate getStartdate() {
+        return startdate;
     }
 
     // declaring the feeCalculation abstract class
@@ -91,24 +67,8 @@ public abstract class Member {
 
     @Override
     public String toString() {
-        return "Member [title=" + title + ", firstName=" + firstName + ", lastName=" + lastName + ", age=" + age
-                + ", memberID=" + memberID + ", type=" + type + ", duration=" + duration + ", stardate=" + stardate
-                + ", fee=" + fee + "]";
+        return title + " " + firstName + " " + lastName + ", " + age + " years old, "
+                + ", ID number " + memberID + ", type " + type + ", " + duration + ", start date" + startdate
+                + ", owe " + fee + "£";
     }
-
-    // public double getMembershipFee() {
-    // return membershipFee;
-    // }
-
-    // public void setMembershipFee(double membershipFee) {
-    // this.membershipFee = membershipFee;
-    // }
-
-    // @Override
-    // public String toString() {
-    // return "memberID=" + memberID + ", type=" + type + ", duration=" + duration +
-    // ", stardate=" + stardate
-    // + ", membershipFee=" + membershipFee;
-    // }
-
 }

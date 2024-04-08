@@ -1,3 +1,23 @@
+public class Payment {
+    public Museum museum;
+    public Member member;
+    public Double fee;
+
+    public Payment(Museum museum, Member member) {
+        this.museum = museum;
+        this.member = member;
+    }
+
+    public double pay(Member member) {
+        double fee = member.feeCalculation();
+        museum.totalFee += fee;
+
+        // this.museum.addVisitor(member);
+        museum.addPayment(this);
+        return fee;
+    }
+}
+
 // import java.time.DayOfWeek;
 // import java.time.LocalDateTime;
 
@@ -54,61 +74,38 @@
 // import java.util.Scanner;
 
 // public class Payment {
-//     public Museum museum;
-//     public Member member;
-//     public Double fee;
+// public Museum museum;
+// public Member member;
+// public Double fee;
 
-//     public Boolean pay() {
-//         double fee = this.member.feeCalculation();
-//         System.out.println("do you agree with the fee that is :" + fee);
-//         Scanner scn = new Scanner(System.in);
-//         String answer = scn.nextLine();
-//         if (answer.startsWith("y")) {
-//             this.fee = fee;
-//             this.museum.totalFee += fee;
-//             // this.museum.addVisitor(member);
-//             this.museum.addPayment(this); // we delegated the history of payments to the payment class; so this would be
-//                                           // classified as a singleton
-//             return true;
-//         }
-//         return false;
-//     }
+// public Boolean pay() {
+// double fee = this.member.feeCalculation();
+// System.out.println("do you agree with the fee that is :" + fee);
+// Scanner scn = new Scanner(System.in);
+// String answer = scn.nextLine();
+// if (answer.startsWith("y")) {
+// this.fee = fee;
+// this.museum.totalFee += fee;
+// // this.museum.addVisitor(member);
+// this.museum.addPayment(this); // we delegated the history of payments to the
+// payment class; so this would be
+// // classified as a singleton
+// return true;
+// }
+// return false;
+// }
 
 // }
 
 // public final class Payment {
-//     private static Payment FEE;
-//     private String info = "initial info class";
+// private static Payment FEE;
+// private String info = "initial info class";
 
-//     private Payment(){
-//         public static Payment getInstance(){
-//             if (FEE = null) {
-//                 FEE = new Payment();
-//             } return FEE;
-//         }
-//     }
+// private Payment(){
+// public static Payment getInstance(){
+// if (FEE = null) {
+// FEE = new Payment();
+// } return FEE;
 // }
-
-// import java.util.Scanner;
-
-public class Payment {
-    public Museum museum;
-    public Double fee;
-    public Member member;
-
-    public Payment(Museum museum, Member member) {
-        this.museum = museum;
-        this.member = member;
-    }
-
-    public double pay(Member member) {
-        double fee = member.feeCalculation();
-        museum.totalFee += fee;
-
-        // this.museum.addVisitor(member);
-        museum.addPayment(this); // we delegated the history of payments to the payment class; so this would be
-                                 // classified as a singleton
-        return fee;
-    }
-
-}
+// }
+// }

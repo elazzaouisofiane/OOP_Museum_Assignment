@@ -1,15 +1,12 @@
 
 // importing packages
-// import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Museum {
-    public String NAME;
-    public String LOCATION;
+    public static final String NAME = "Museum";
+    public static final String LOCATION = "Country Z";
     public double totalFee;
     private Member member;
-    // public DateTimeFormatter visitDateTime = DateTimeFormatter.ofPattern("E,
-    // mm");
 
     public static ArrayList<Member> members = new ArrayList<>();
     public static ArrayList<Payment> payments = new ArrayList<>();

@@ -2,13 +2,12 @@ import java.time.LocalDate;
 
 public class FamilyMember extends Member {
 
-    // constructing the member object in the subclass
+    // constructing the FamilyMember object in the subclass
 
     public FamilyMember(String title, String firstName, String lastName, int age, int memberID, String type,
-            String duration,
-            LocalDate stardate) {
-        super(title, firstName, lastName, age, memberID, type, duration, stardate);
-        System.out.println("constructing familyMember object");
+            int duration,
+            LocalDate startdate) {
+        super(title, firstName, lastName, age, memberID, type, duration, startdate);
     }
 
     @Override
@@ -19,12 +18,12 @@ public class FamilyMember extends Member {
         }
 
         if (super.getType().equalsIgnoreCase("Family")
-                && super.getDuration().equalsIgnoreCase("Monthly")) {
+                && super.getDuration() == 1) {
             // Couple member fee logic
             this.fee = 8.0;
             // System.out.println(" fee is " + this.member.fee);
         } else if (super.getType().equalsIgnoreCase("Family")
-                && super.getDuration().equalsIgnoreCase("Annually")) {
+                && super.getDuration() == 12) {
             this.fee = 25.0;
             // System.out.println(" fee is " + this.member.fee);
         } else {
@@ -36,9 +35,16 @@ public class FamilyMember extends Member {
 
     @Override
     public String toString() {
-        return "FamilyMember Title: " + getTitle() + ", first name: " + getFirstName() + ", last name: " + getLastName()
-                + ", age: " + getAge() + " memberID=" + getMemberID() + ", type=" + getType() + ", duration="
-                + getDuration() + ", stardate=" + getStardate() + " fee= " + fee;
+        return getTitle() + " " + getFirstName() + " " + getLastName()
+                + ", " + getAge() + " years old, ID number " + getMemberID() + ", type " + getType() + ", duration "
+                + getDuration() + ", start date " + getStartdate() + " has " + fee + "£ of fee";
     }
 
 }
+// @Override
+// public String toString() {
+// return title + " " + firstName + " " + lastName + ", " + age + " years old, "
+// + ", ID number " + memberID + ", type " + type + ", " + duration + ", start
+// date" + startdate
+// + ", owe " + fee + "£";
+// }

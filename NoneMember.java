@@ -1,19 +1,16 @@
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-// import java.util.Scanner;
 
 public class NoneMember extends Member {
 
     // declaring the visitDateTime variables needed to calculate the fee
-
     private LocalDateTime visitDateTime;
 
     // constructing noneMember
-
     public NoneMember(String title, String firstName, String lastName, int age, int memberID, String type,
-            String duration, LocalDate stardate, LocalDateTime visitDateTime) {
-        super(title, firstName, lastName, age, memberID, type, duration, stardate);
+            int duration, LocalDate startdate, LocalDateTime visitDateTime) {
+        super(title, firstName, lastName, age, memberID, type, duration, startdate);
         this.visitDateTime = visitDateTime;
     }
 
@@ -21,27 +18,30 @@ public class NoneMember extends Member {
     @Override
     public double feeCalculation() {
 
+        // 1. Check if visitor age is above 12:
         if (this.getAge() < 12) {
             System.out.println(" Visitor " + getFirstName() + " is under 12 years old get free entrance.");
             return fee = 0.0;
         }
 
+        // Declaring hour variables locally
         int hour = visitDateTime.getHour();
-        // 1. Check for Weekend (Saturday or Sunday between 8am and 5pm) using
+
+        // 2. Check for Weekend (Saturday or Sunday between 8am and 5pm) using
         // procedural programmation:
         if (visitDateTime.getDayOfWeek() == DayOfWeek.SATURDAY && hour >= 8 && hour < 17 ||
                 visitDateTime.getDayOfWeek() == DayOfWeek.SUNDAY) {
             return this.fee = 12.0;
         }
 
-        // 2. Check for Weekday (12 noon - 3 pm)
+        // 3. Check for Weekday (12 noon - 3 pm)
         // int hour = visitDateTime.getHour();
         if (visitDateTime.getDayOfWeek().getValue() <= 5 && // Monday - Friday
                 hour >= 12 && hour < 15) {
             return this.fee = 7.0;
         }
 
-        // 3. Default Weekday Fee (8 am - 5 pm)
+        // 4. Default Weekday Fee (8 am - 5 pm)
         if (visitDateTime.getDayOfWeek().getValue() <= 5 && // Monday - Friday
                 hour >= 8 && hour < 17) {
             return this.fee = 10.0;
@@ -53,7 +53,9 @@ public class NoneMember extends Member {
 
     @Override
     public String toString() {
-        return getFirstName() + ", " + getLastName() + ", " + getAge() + " years old, visited the museum the "
-                + visitDateTime + " without membership and need to pay " + fee + "£";
+        return getTitle() + " " + getFirstName() + " " + getLastName() + ", " + getAge() + " years old, ID number "
+                + getMemberID()
+                + " visited the museum the "
+                + visitDateTime + " without membership has " + fee + "£ of fee";
     }
 }

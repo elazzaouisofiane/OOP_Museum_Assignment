@@ -2,16 +2,9 @@ import java.time.LocalDate;
 
 public class IndividualMember extends Member {
 
-    // public IndividualMember(String title, String firstName, String lastName, int
-    // age, int memberID, String type,
-    // String duration, LocalDate stardate) {
-    // super(title, firstName, lastName, age, memberID, type, duration, stardate);
-    // System.out.println("constructing individulMember Object");
-    // }
-
     public IndividualMember(String title, String firstName, String lastName, int age, int memberID, String type,
-            String duration, LocalDate stardate) {
-        super(title, firstName, lastName, age, memberID, type, duration, stardate);
+            int duration, LocalDate startdate) {
+        super(title, firstName, lastName, age, memberID, type, duration, startdate);
         System.out.println("constructing individualMember Object");
     }
 
@@ -23,11 +16,11 @@ public class IndividualMember extends Member {
         }
 
         if (super.getType().equalsIgnoreCase("Individual")
-                && super.getDuration().equalsIgnoreCase("Monthly")) {
+                && super.getDuration() == 1) {
             // Couple member fee logic
             this.fee = 3.0;
         } else if (super.getType().equalsIgnoreCase("Individual")
-                && super.getDuration().equalsIgnoreCase("Annually")) {
+                && super.getDuration() == 12) {
             this.fee = 15.0;
         } else {
             this.fee = 0.0;
@@ -38,10 +31,9 @@ public class IndividualMember extends Member {
 
     @Override
     public String toString() {
-        return "IndividualMember Title: " + getTitle() + ", first name: " + getFirstName() + ", last name: "
-                + getLastName() + ", age: " + getAge() +
-                " memberID= " + getMemberID() + ", type= " + getType() + ", duration= " + getDuration() + ", stardate= "
-                + getStardate() + " fee= " + feeCalculation();
+        return getTitle() + " " + getFirstName() + " " + getLastName()
+                + ", " + getAge() + " years old, ID number " + getMemberID() + ", type " + getType() + ", duration "
+                + getDuration() + ", start date " + getStartdate() + " has " + fee + "£ of fee";
     }
 
 }
