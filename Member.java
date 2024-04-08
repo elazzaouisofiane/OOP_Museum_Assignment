@@ -1,69 +1,114 @@
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
-public class Member {
+public abstract class Member {
 
-    // Member Visitor composition relation by calling the Visitor object:
-    private Visitor visitor;
-    // Variables declaration using encapsulation
-    private int membershipID;
-    // adding a static counter
-    private static int nextID = 1; // initialize with 1
-    private String durationMonth;
-    private LocalDate membershipStartingDate;
-    private MembershipType membershipType;
+    private String title;
+    private String firstName;
+    private String lastName;
+    private int age;
+    private int memberID;
+    private static int nextID = 123;
+    private String type;
+    private String duration;
+    private LocalDate stardate;
+    // private double membershipFee;
+    public double fee;
 
-    // Concrete method to construct object "Member"
-    public Member(String title, String firstName, String lastName, int age, LocalDateTime visitDateTime,
-            String durationMonth, LocalDate membershipStartingDate, MembershipType membershipType) {
-        this.visitor = new Visitor(title, firstName, lastName, age, visitDateTime);
-        this.membershipID = nextID++;
-        this.durationMonth = durationMonth;
-        this.membershipStartingDate = membershipStartingDate;
-        this.membershipType = membershipType;
+    // public Member(String firstName, String lastName, int age) {
+    // this.title = null;
+    // this.firstName = firstName;
+    // this.lastName = lastName;
+    // this.age = age;
+    // this.memberID = nextID++;
+    // this.type = null;
+    // this.duration = null;
+    // this.stardate = null;
+    // }
+
+    // public Member(String title, String firstName, String lastName, int age, int
+    // memberID) {
+    // this.title = title;
+    // this.firstName = firstName;
+    // this.lastName = lastName;
+    // this.age = age;
+    // this.memberID = nextID++;
+    // this.type = null;
+    // this.duration = null;
+    // this.stardate = null;
+    // }
+
+    public Member(String title, String firstName, String lastName, int age, int memberID, String type, String duration,
+            LocalDate stardate) {
+        this.title = title;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.memberID = nextID++;
+        this.type = type;
+        this.duration = duration;
+        this.stardate = stardate;
     }
 
-    public Member(String title, String firstName, String lastName, int age, LocalDateTime visitDateTime) {
-        this.visitor = new Visitor(title, firstName, lastName, age, visitDateTime);
-        this.membershipID = nextID++;
-        this.durationMonth = null;
-        this.membershipStartingDate = null;
-        this.membershipType = null;
+    // adding getters
+    public String getTitle() {
+        return title;
     }
 
-    // Getters to access the private attribute from external classes:
-    public Visitor geVisitor() {
-        return visitor;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public int getMembershipID() {
-        return membershipID;
+    public String getLastName() {
+        return lastName;
     }
 
-    public String getDurationMonth() {
-        return durationMonth;
+    public int getAge() {
+        return age;
     }
 
-    public LocalDate getMembershipStartingDate() {
-        return membershipStartingDate;
+    public int getMemberID() {
+        return memberID;
     }
 
-    public MembershipType getMembershipType() {
-        return membershipType;
+    public static int getNextID() {
+        return nextID;
     }
 
-    // // Method to set MembershipType from enum class
-    // public void setMemberShipType(MembershipType membershipType)
-    // {this.membershipType = membershipType;}
+    public String getType() {
+        return type;
+    }
 
-    // toString method implementation to print member from memberlist
+    public String getDuration() {
+        return duration;
+    }
+
+    public LocalDate getStardate() {
+        return stardate;
+    }
+
+    // declaring the feeCalculation abstract class
+    public abstract double feeCalculation();
 
     @Override
     public String toString() {
-        return "Visitor: " + visitor + ", Membership Type: " + getMembershipType() + ", Member ID: "
-                + getMembershipID() +
-                ", Period: " + getDurationMonth() +
-                ", Start Date: " + getMembershipStartingDate();
+        return "Member [title=" + title + ", firstName=" + firstName + ", lastName=" + lastName + ", age=" + age
+                + ", memberID=" + memberID + ", type=" + type + ", duration=" + duration + ", stardate=" + stardate
+                + ", fee=" + fee + "]";
     }
+
+    // public double getMembershipFee() {
+    // return membershipFee;
+    // }
+
+    // public void setMembershipFee(double membershipFee) {
+    // this.membershipFee = membershipFee;
+    // }
+
+    // @Override
+    // public String toString() {
+    // return "memberID=" + memberID + ", type=" + type + ", duration=" + duration +
+    // ", stardate=" + stardate
+    // + ", membershipFee=" + membershipFee;
+    // }
 
 }

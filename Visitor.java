@@ -1,61 +1,58 @@
-import java.time.LocalDateTime;
+// import java.util.ArrayList;
 
-public class Visitor {
-    // Variable declaration
-    private String title;
-    private String firstName;
-    private String lastName;
-    private int age;
-    private LocalDateTime visitDateTime;
+// public class Visitor {
+// // Variable declaration
+// private String title;
+// private String firstName;
+// private String lastName;
+// private int age;
+// private double feeToPay;
 
-    // object constructor
-    public Visitor(String title, String firstName, String lastName, int age, LocalDateTime visitDateTime) {
-        this.title = title;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.visitDateTime = visitDateTime;
-    }
+// public ArrayList<Visitor> visitorList = new ArrayList<>();
+// public ArrayList<visit> visitList = new ArrayList<>();
 
-    public Visitor(String firstName, String lastName, int age) {
-        this.title = null;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.visitDateTime = LocalDateTime.now();
-    }
+// // object constructor
+// public Visitor(String firstName, String lastName, int age) {
+// this.title = null;
+// this.firstName = firstName;
+// this.lastName = lastName;
+// this.age = age;
+// }
 
-    // adding getters
-    public String getTitle() {
-        return title;
-    }
+// public Visitor(String title, String firstName, String lastName, int age) {
+// this.title = title;
+// this.firstName = firstName;
+// this.lastName = lastName;
+// this.age = age;
+// }
 
-    public String getFirstName() {
-        return firstName;
-    }
+// // adding getters
+// public String getTitle() {
+// return title;
+// }
 
-    public String getLastName() {
-        return lastName;
-    }
+// public String getFirstName() {
+// return firstName;
+// }
 
-    public int getAge() {
-        return age;
-    }
+// public String getLastName() {
+// return lastName;
+// }
 
-    public LocalDateTime getVisitDateTime() {
-        return visitDateTime;
-    }
+// public int getAge() {
+// return age;
+// }
 
-    public void is12() {
-        if (age < 12) {
-            double fee = 0.0;
-        }
-    }
+// @Override
+// public String toString() {
+// return " Title: " + getTitle() + ", first name: " + getFirstName() + ", last
+// name: " + getLastName()
+// + ", age: " + getAge();
+// }
 
-    @Override
-    public String toString() {
-        return " Title: " + getTitle() + ", first name: " + getFirstName() + ", last name: " + getLastName()
-                + ", age: " + getAge() + ", visite date and time: " + getVisitDateTime();
-    }
-
-}
+// public double () {
+// if (this.getAge() < 12) {
+// return feeToPay = 0;
+// }
+// }
+// }
