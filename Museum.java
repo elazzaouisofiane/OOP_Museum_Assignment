@@ -12,6 +12,7 @@ public class Museum {
     public static ArrayList<Payment> payments = new ArrayList<>();
 
     public void addVisitor(Member member) {
+        member.setFeePaid(0.0);
         members.add(member);
     }
 
@@ -23,7 +24,7 @@ public class Museum {
 
         System.out.println("List of Museum Members:");
         for (Member member : members) {
-            System.out.println(member.toString());
+            System.out.println(member.toString() + ", Fee Paid: " + member.getFeePaid());
         }
     }
 

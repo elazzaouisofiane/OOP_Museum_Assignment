@@ -12,6 +12,7 @@ public abstract class Member {
     private int duration;
     private LocalDate startdate;
     public double fee;
+    private double feePaid;
 
     public Member(String title, String firstName, String lastName, int age, int memberID, String type, int duration,
             LocalDate startdate) {
@@ -70,5 +71,14 @@ public abstract class Member {
         return title + " " + firstName + " " + lastName + ", " + age + " years old, "
                 + ", ID number " + memberID + ", type " + type + ", " + duration + ", start date" + startdate
                 + ", owe " + fee + "£";
+    }
+
+    // Getter and setter for feePaid
+    public double getFeePaid() {
+        return feePaid;
+    }
+
+    public void setFeePaid(double feePaid) {
+        this.feePaid = feePaid;
     }
 }

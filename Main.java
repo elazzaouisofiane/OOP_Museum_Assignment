@@ -97,46 +97,10 @@ public class Main {
         for (Member member : Museum.members) {
             System.out.println(member);
         }
+        museum.printMembers(); // Print members with their fees
     }
 }
 
 // Museum museumJune = new Museum();
 // Museum museumJuly = new Museum();
 // Museum museumAugust = new Museum();
-
-// public class PaymentCouple extends Payment {
-// // public PaymentCouple(Member member) {
-// // super(member);
-// // }
-
-// // @Override
-// // public double feeCalculation() {
-// // double calculatedFee = 0.0;
-
-// // if (member.getType().equalsIgnoreCase("Couple")
-// // && member.getDuration().equalsIgnoreCase("Monthly")) {
-// // // Couple member fee logic
-// // calculatedFee = 5.0;
-// // } else if (member.getType().equalsIgnoreCase("Couple")
-// // && member.getDuration().equalsIgnoreCase("Annually")) {
-// // calculatedFee = 20.0;
-// // } else {
-// // // Delegate to another appropriate Payment subclass
-// // calculatedFee = super.defaultFeeCalculation();
-// // }
-// // this.feeToPay = calculatedFee;
-// // return this.feeToPay;
-// // }
-// // }
-
-// **Payment Calculation for Sofiane**
-// PaymentCouple paymentForSofiane = new PaymentCouple(Sofiane);
-// double fee = paymentForSofiane.feeCalculation();
-// System.out.println("\nSofiane's Payment: " + fee);
-
-// Payment ppayment = new Payment(museum, George);
-// fee = ppayment.pay(nname); // Pass Sofiane as a parameter
-// System.out.println("Fee: " + fee); // You can print the fee if needed
-// museum.addVisitor(nname);
-
-// Museum.members.add(Mohammed);
